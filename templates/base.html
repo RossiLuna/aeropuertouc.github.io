@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap
+.min.css" integrity="sha384-
+ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <link href="static/css/style_menu.css" rel="stylesheet" type="text/css">
+
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <ul>
+            <li><a href='#' >Registro</a></li>
+            <li><a href="{{ url_for('index')}}">Inicio</a></li>
+            <li><a class='dropdown-arrow' href="{{ url_for('destino')}}">Destino</a>
+                <ul class='sub-menus'>
+                    <li><a href='#'>America</a></li>
+                    <li><a href='#'>Europa</a></li>
+                    <li><a href='#'>Africa</a></li>
+                </ul>
+            <li><a href='#'>Acceder</a></li>
+            </li>
+            <li><a class='dropdown-arrow' href='#'>Membresia</a>
+                <ul class='sub-menus'>
+                    <li><a href='#'>VIP</a></li>
+                    <li><a href='#'>Turista</a></li>
+                </ul>
+            </li>
+            <li><a href='#'>Precios</a></li>
+            <li><a href='#'>Acceder</a></li>
+            <li><a  href="{{url_for('create')}}">Opiniones</a></li>
+       
+        </ul>
+    </nav>
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+        {% block content %} {% endblock %}
+    </div>
+
+    <script src="static/js/script.js"></script>
+</body>
+<footer class="pie_pagina"><h1>Creditos</h1>
+    <ul>
+      <li>Desarrollado por: </li> 
+        <ul>
+            <li>Amry Vásquez</li>
+            <li>Rossina Luna</li>
+        </ul>
+      <li>Revisado por: Victor Esteller</li>
+      <span class="material-icons"href=static\imagenes\outline_alternate_email_white_24dp.png></span>
+
+    </ul>
+    <p><b class="credito">&copy 2023</b></p>
+    
+  </footer>
+
+</html>
